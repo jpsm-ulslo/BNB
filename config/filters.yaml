@@ -1,0 +1,42 @@
+# --------------------------------------------------
+# NEXTBITT CONFIGURATION
+# --------------------------------------------------
+nextbitt:
+  base_url: "https://ulslo.nextbitt.net/"
+  assets_url: "https://ulslo.nextbitt.net/Assets/Default"
+
+# --------------------------------------------------
+# AUTHENTICATION
+# --------------------------------------------------
+auth:
+  username: ""
+  password: ""
+
+# --------------------------------------------------
+# LOGIN BEHAVIOR (future-proof)
+# --------------------------------------------------
+login:
+  username_label: "Utilizador"
+  password_label: "Palavra-Chave"
+
+# --------------------------------------------------
+# FILTER CONFIGURATION (CORE SECTION)
+# --------------------------------------------------
+filters:
+
+  - field: "Classe"
+    value: "Equip. Clínicos"
+    operator: "contains"
+
+  - field: "Cód. Localização"
+    value: "HSC"
+    operator: "contains"
+
+  - field: "Localização"
+    value: "UCI"
+    operator: "contains"
+
+  # Exemplo adicional (facilmente editável)
+  #- field: "Descrição"
+  #  value: "seringa"
+  #  operator: "contains"
