@@ -6,6 +6,9 @@ from pathlib import Path
 import yaml
 import logging
 
+import time
+
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -95,6 +98,8 @@ class NextbittClient:
                 lambda d: len(d.find_elements("xpath", "//table")) > 0
             )
 
+            self._prepare_view()
+
             # --------------------------------------------------
             # APPLY FILTERS
             # --------------------------------------------------
@@ -158,3 +163,15 @@ class NextbittClient:
                             return
 
         log.warning("⚠️ Pagination readiness not confirmed")
+
+
+
+    def _prepare_view(self):
+
+        log.info("🔎 Adjusting viewport (zoom out)")
+
+        driver = self.driver
+
+        # ✅ zoom out robusto
+        driver.execute_script("document.body.style.zoom='0.5'")
+        time.sleep(1)
